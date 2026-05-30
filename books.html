@@ -1,112 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books - The Map To The Forgotten World</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Books</title>
 
-    <style>
-        body {
-            font-family: Georgia, serif;
-            margin: 0;
-            color: white;
-            text-align: center;
+<style>
+body {
+    font-family: Georgia, serif;
+    margin: 0;
+    color: white;
+    text-align: center;
+    background: radial-gradient(circle at top, #1b2a4a 0%, #0b1020 40%, #05070f 100%);
+    background-attachment: fixed;
+}
 
-            background: radial-gradient(circle at top, #1b2a4a 0%, #0b1020 40%, #05070f 100%);
-            background-attachment: fixed;
-        }
+/* NAV */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
 
-        header {
-            padding: 40px 20px;
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+}
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-        }
+nav a:hover {
+    opacity: 1;
+    color: #facc15;
+}
 
-        .sub {
-            opacity: 0.8;
-            font-size: 1.1rem;
-        }
+/* BOOK CARD */
+.book {
+    max-width: 750px;
+    margin: 60px auto;
+    padding: 25px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
+}
 
-        .book-container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            backdrop-filter: blur(6px);
-        }
+.cover {
+    width: 250px;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(255,255,255,0.2);
+    transition: transform 0.3s ease;
+}
 
-        .cover {
-            width: 260px;
-            max-width: 80%;
-            border-radius: 12px;
-            box-shadow: 0 0 35px rgba(255,255,255,0.2);
-            transition: transform 0.3s ease;
-        }
+.cover:hover {
+    transform: scale(1.03);
+}
 
-        .cover:hover {
-            transform: scale(1.04);
-        }
+.title {
+    font-size: 1.6rem;
+    margin-top: 15px;
+    font-weight: bold;
+}
 
-        .title {
-            font-size: 1.4rem;
-            margin-top: 15px;
-            font-weight: bold;
-        }
+.status {
+    margin-top: 5px;
+    color: #facc15;
+    font-weight: bold;
+}
 
-        .status {
-            color: #facc15;
-            margin-top: 5px;
-            font-weight: bold;
-        }
+.desc {
+    margin-top: 15px;
+    line-height: 1.8;
+}
 
-        .desc {
-            margin-top: 15px;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        a {
-            color: #facc15;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 25px;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+footer {
+    margin-top: 60px;
+    padding: 20px;
+    opacity: 0.7;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    <h1>Books</h1>
-    <div class="sub">Stories by Prashmit Mohapatra</div>
-</header>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="books.html">Books</a>
+</nav>
 
-<div class="book-container">
+<h1>Books</h1>
 
-    <img src="a1d56683-d680-4d6a-82a9-de0e38b390bd.jpeg" alt="Book Cover" class="cover">
+<div class="book">
+
+    <img src="a1d56683-d680-4d6a-82a9-de0e38b390bd.jpeg" class="cover">
 
     <div class="title">The Map To The Forgotten World</div>
 
     <div class="status">Debut Novel • Coming Soon</div>
 
     <div class="desc">
-        A mysterious map leads to a forgotten world filled with secrets,
-        danger, and discovery. What begins as curiosity becomes an adventure
-        beyond imagination.
+        A mysterious map leads to a forgotten world filled with hidden secrets, ancient mysteries,
+        and a journey that changes everything it touches.
     </div>
 
 </div>
 
-<a href="index.html">← Back to Home</a>
+<footer>
+©️ 2026 Prashmit Mohapatra
+</footer>
 
 </body>
 </html>
