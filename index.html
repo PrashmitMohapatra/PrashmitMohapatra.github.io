@@ -9,9 +9,30 @@
         body {
             font-family: Georgia, serif;
             margin: 0;
-            background: linear-gradient(to bottom, #0f172a, #1e293b);
             color: white;
             text-align: center;
+
+            background: radial-gradient(circle at top, #1b2a4a 0%, #0b1020 40%, #05070f 100%);
+            background-attachment: fixed;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            font-size: 1.1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        nav a:hover {
+            opacity: 1;
+            color: #facc15;
         }
 
         .hero {
@@ -22,7 +43,12 @@
             width: 300px;
             max-width: 80%;
             border-radius: 15px;
-            box-shadow: 0 0 30px rgba(255,255,255,0.2);
+            box-shadow: 0 0 40px rgba(255,255,255,0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .cover:hover {
+            transform: scale(1.03);
         }
 
         h1 {
@@ -32,7 +58,7 @@
 
         .author {
             font-size: 1.2rem;
-            opacity: 0.8;
+            opacity: 0.85;
         }
 
         .coming-soon {
@@ -40,14 +66,31 @@
             font-size: 1.4rem;
             color: #facc15;
             font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        .description {
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 0 20px;
+        .section {
+            max-width: 750px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: left;
+
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            backdrop-filter: blur(6px);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            color: #facc15;
+        }
+
+        .section p {
             line-height: 1.8;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
         }
 
         footer {
@@ -57,23 +100,51 @@
         }
     </style>
 </head>
+
 <body>
 
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="books.html">Books</a>
+    </nav>
+
     <div class="hero">
-        <img src="a1d56683-d680-4d6a-82a9-de0e38b390bd.jpeg" alt="The Map To The Forgotten World" class="cover">
+        <img src="a1d56683-d680-4d6a-82a9-de0e38b390bd.jpeg" alt="Book Cover" class="cover">
 
         <h1>The Map To The Forgotten World</h1>
 
-        <p class="author">By Prashmit Mohapatra</p>
+        <p class="author">A Fantasy Adventure by Prashmit Mohapatra</p>
 
         <p class="coming-soon">Coming Soon</p>
     </div>
 
-    <div class="description">
+    <div class="section">
+        <h2>The Story</h2>
+
         <p>
-            An adventure beyond the known world awaits.
-            Follow a mysterious map, uncover forgotten secrets,
-            and journey into lands that history left behind.
+            Some maps lead to places. This one leads to a forgotten world.
+        </p>
+
+        <p>
+            Hidden secrets, ancient mysteries, and an adventure beyond imagination await.
+            What begins as curiosity turns into a journey deeper into the unknown.
+        </p>
+
+        <p>
+            A world lost to time. A path that should not be followed. A story waiting to be discovered.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>About the Author</h2>
+
+        <p>
+            Prashmit Mohapatra is a young author passionate about adventure, mystery, and storytelling.
+            He enjoys creating imaginative worlds filled with discovery and wonder.
+        </p>
+
+        <p>
+            <i>The Map To The Forgotten World</i> is his debut novel.
         </p>
     </div>
 
