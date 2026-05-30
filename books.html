@@ -1,30 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Books | Prashmit Mohapatra</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books - The Map To The Forgotten World</title>
+
+    <style>
+        body {
+            font-family: Georgia, serif;
+            margin: 0;
+            color: white;
+            text-align: center;
+
+            background: radial-gradient(circle at top, #1b2a4a 0%, #0b1020 40%, #05070f 100%);
+            background-attachment: fixed;
+        }
+
+        header {
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .sub {
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        .book-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            backdrop-filter: blur(6px);
+        }
+
+        .cover {
+            width: 260px;
+            max-width: 80%;
+            border-radius: 12px;
+            box-shadow: 0 0 35px rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .cover:hover {
+            transform: scale(1.04);
+        }
+
+        .title {
+            font-size: 1.4rem;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .status {
+            color: #facc15;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .desc {
+            margin-top: 15px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        a {
+            color: #facc15;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 25px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
+
 <body>
 
 <header>
     <h1>Books</h1>
+    <div class="sub">Stories by Prashmit Mohapatra</div>
 </header>
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="books.html">Books</a>
-</nav>
+<div class="book-container">
 
-<div class="container">
+    <img src="a1d56683-d680-4d6a-82a9-de0e38b390bd.jpeg" alt="Book Cover" class="cover">
 
-    <div class="book-card">
-        <h2>The Map to the Forgotten World</h2>
-        <p>Debut Novel • Coming Soon on Amazon</p>
-        <p>A mysterious map leads to a forgotten world filled with danger and secrets.</p>
+    <div class="title">The Map To The Forgotten World</div>
+
+    <div class="status">Debut Novel • Coming Soon</div>
+
+    <div class="desc">
+        A mysterious map leads to a forgotten world filled with secrets,
+        danger, and discovery. What begins as curiosity becomes an adventure
+        beyond imagination.
     </div>
 
 </div>
+
+<a href="index.html">← Back to Home</a>
 
 </body>
 </html>
