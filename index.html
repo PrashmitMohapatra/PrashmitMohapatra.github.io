@@ -1,3 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prashmit Mohapatra | Author</title>
+
+<style>
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Georgia, serif;
+    color:white;
+    text-align:center;
+
+    background:
+    radial-gradient(circle at top,
+    #1b2a4a 0%,
+    #0b1020 40%,
+    #05070f 100%);
+
+    background-attachment:fixed;
+
+    animation:fadePage 1s ease;
+}
+
+@keyframes fadePage{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    padding:25px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+    font-size:1.05rem;
+}
+
+nav a:hover{
+    color:#facc15;
+}
+
+.hero{
+    padding:60px 20px;
+}
+
+.website-tag{
+    color:#facc15;
+    letter-spacing:3px;
+    font-size:.9rem;
+}
+
+.author-name{
+    font-size:3.3rem;
+    margin:10px 0;
+}
+
+.author-subtitle{
+    opacity:.8;
+    font-size:1.1rem;
+}
+
+.genre-line{
+    color:#facc15;
+    margin-top:15px;
+    font-size:1.1rem;
+}
+
+.hero-hook{
+    max-width:700px;
+    margin:25px auto;
+    line-height:1.8;
+    font-style:italic;
+    font-size:1.1rem;
+}
+
+.cover{
+    width:320px;
+    max-width:90%;
+    border-radius:18px;
+    margin-top:20px;
+
+    box-shadow:0 0 35px rgba(255,255,255,.18);
+
+    transition:.4s;
+}
+
+.cover:hover{
+    transform:scale(1.04);
+}
+
+.book-title{
+    font-size:2.4rem;
+    margin-top:30px;
+}
+
+.book-subtitle{
+    opacity:.8;
+}
+
+.coming-soon{
+    color:#facc15;
+    font-weight:bold;
+    font-size:1.2rem;
+}
+
+.section{
+    max-width:900px;
+    margin:50px auto;
+    padding:30px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    backdrop-filter:blur(8px);
+
+    text-align:left;
+
+    transition:.3s;
+}
+
+.section:hover{
+    transform:translateY(-4px);
+}
+
+.section h2{
+    color:#facc15;
+    text-align:center;
+}
+
+.section p{
+    line-height:1.9;
+}
+
+footer{
+    margin-top:60px;
+    padding:30px;
+    opacity:.7;
+}
+
+@media(max-width:700px){
+
+.author-name{
+    font-size:2.4rem;
+}
+
+.book-title{
+    font-size:1.8rem;
+}
+
+.section{
+    margin:25px 15px;
+}
+
+}
+
+</style>
+</head>
+
 <body>
 
 <nav>
@@ -33,125 +213,142 @@
 
 <div class="section">
 
-    <h2>About Me</h2>
+<h2>About Me</h2>
 
-    <p>
-        My name is Prashmit Mohapatra, and I am a Class 7 student from Odisha, India.
-        I enjoy creating stories that combine fantasy, mystery, and darker fictional themes.
-    </p>
+<p>
+My name is Prashmit Mohapatra, and I am a Class 7 student from Odisha, India.
+I enjoy writing stories that combine fantasy, mystery, adventure, and darker fictional themes.
+</p>
 
-    <p>
-        My interest in writing comes from my love of books and imagination.
-        Many of my ideas begin as simple questions or random thoughts before growing into larger stories filled with hidden secrets and unexplored worlds.
-    </p>
+<p>
+My interest in storytelling comes from reading books and exploring ideas that begin as simple questions.
+Many of those ideas eventually grow into larger worlds filled with secrets, mysteries, and hidden histories.
+</p>
 
-    <p>
-        Apart from writing, I enjoy drawing and exploring technology.
-        These interests often inspire new ideas and help me imagine the worlds and characters that appear in my stories.
-    </p>
+<p>
+Apart from writing, I enjoy drawing and exploring technology.
+These interests often inspire new settings, characters, and ideas for future stories.
+</p>
 
 </div>
 
 <div class="section">
 
-    <h2>Writing & Inspiration</h2>
+<h2>Writing & Inspiration</h2>
 
-    <p>
-        I am especially interested in fantasy, dark fiction, and mystery.
-        I enjoy stories that slowly reveal their secrets and reward curiosity.
-    </p>
+<p>
+Fantasy, dark fiction, and mystery are the genres that interest me most.
+I enjoy stories that slowly reveal their secrets and encourage readers to keep asking questions.
+</p>
 
-    <p>
-        Many of my ideas are inspired by books I read and by unexpected thoughts that appear during everyday life.
-        Sometimes a single question can grow into an entire world.
-    </p>
+<p>
+Many of my ideas are inspired by books I read and random thoughts that appear during everyday life.
+A single question can sometimes become the foundation of an entire story.
+</p>
+
+<p>
+I enjoy creating worlds that feel mysterious, imaginative, and filled with things waiting to be discovered.
+</p>
 
 </div>
 
 <div class="hero">
 
-    <img src="a1d56683-d680-4d6a-82a9-de0e38b390bd.jpeg" class="cover">
+<img src="a1d56683-d680-4d6a-82a9-de0e38b390bd.jpeg" class="cover">
 
-    <h2 class="book-title">
-        The Map To The Forgotten World
-    </h2>
+<h2 class="book-title">
+The Map To The Forgotten World
+</h2>
 
-    <p class="book-subtitle">
-        A Fantasy Adventure by Prashmit Mohapatra
-    </p>
+<p class="book-subtitle">
+A Fantasy Adventure by Prashmit Mohapatra
+</p>
 
-    <p class="coming-soon">
-        COMING SOON
-    </p>
-
-</div>
-
-<div class="section">
-
-    <h2>About the Book</h2>
-
-    <p>
-        The Map To The Forgotten World is a fantasy adventure novel filled with mystery, exploration, and the unknown.
-    </p>
-
-    <p>
-        A strange discovery hints at the existence of something that should no longer exist.
-        What follows is a journey into secrets long forgotten and mysteries waiting to be uncovered.
-    </p>
-
-    <p>
-        Without revealing its surprises, the story combines adventure, discovery, hidden truths, and a growing sense of wonder.
-    </p>
+<p class="coming-soon">
+COMING SOON
+</p>
 
 </div>
 
 <div class="section">
 
-    <h2>What Readers Can Expect</h2>
+<h2>About the Book</h2>
 
-    <p>✓ Mystery and unanswered questions</p>
+<p>
+The Map To The Forgotten World is a fantasy adventure novel filled with mystery, exploration, and discovery.
+</p>
 
-    <p>✓ Adventure and exploration</p>
+<p>
+A strange map hints at the existence of something impossible — a place that history seems to have forgotten.
+What follows is a journey into secrets hidden far beyond the known world.
+</p>
 
-    <p>✓ Hidden secrets and discoveries</p>
-
-    <p>✓ A unique fantasy world</p>
-
-    <p>✓ Unexpected twists and revelations</p>
-
-</div>
-
-<div class="section">
-
-    <h2>Future Projects</h2>
-
-    <p>
-        The Map To The Forgotten World is only the beginning.
-    </p>
-
-    <p>
-        I plan to continue writing fantasy and mystery stories that explore forgotten places, hidden truths, and worlds beyond imagination.
-    </p>
+<p>
+Without revealing its surprises, the story combines adventure, mystery, and the excitement of uncovering the unknown.
+</p>
 
 </div>
 
 <div class="section">
 
-    <h2>A Message To Readers</h2>
+<h2>What Readers Can Expect</h2>
 
-    <p>
-        Thank you for visiting my website.
-    </p>
+<p>✓ Mystery and unanswered questions</p>
+<p>✓ Adventure and exploration</p>
+<p>✓ Hidden secrets</p>
+<p>✓ Unexpected discoveries</p>
+<p>✓ A unique fantasy setting</p>
+<p>✓ Twists and revelations</p>
 
-    <p>
-        Whether you enjoy fantasy, mystery, or simply exploring new worlds,
-        I hope you enjoy the journey that awaits inside The Map To The Forgotten World.
-    </p>
+</div>
+
+<div class="section">
+
+<h2>Why Read This Book?</h2>
+
+<p>
+If you enjoy fantasy stories filled with secrets, forgotten places, and mysteries waiting to be uncovered,
+The Map To The Forgotten World offers a journey into a world where every discovery leads to something bigger.
+</p>
+
+<p>
+The story is designed to create curiosity, wonder, and a sense of adventure while keeping readers guessing what lies ahead.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>Future Projects</h2>
+
+<p>
+The Map To The Forgotten World is my first novel, but it is only the beginning.
+</p>
+
+<p>
+I hope to continue writing fantasy and mystery stories that explore hidden worlds, forgotten histories, and adventures beyond imagination.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>A Message To Readers</h2>
+
+<p>
+Thank you for visiting my website.
+</p>
+
+<p>
+Whether you are a fan of fantasy, mystery, or simply enjoy discovering new worlds,
+I hope you enjoy the journey that awaits inside The Map To The Forgotten World.
+</p>
 
 </div>
 
 <footer>
-    ©️ 2026 Prashmit Mohapatra
+©️ 2026 Prashmit Mohapatra
 </footer>
 
 </body>
+</html>
