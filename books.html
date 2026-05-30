@@ -6,7 +6,49 @@
 <title>Books</title>
 
 <style>
+html {
+    scroll-behavior: smooth;
+}
+
 body {
+    animation: pageFade 0.8s ease-in;
+}
+
+/* Smooth page load */
+@keyframes pageFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Smooth sections */
+.section {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-3px);
+}
+
+/* Smooth image */
+.cover {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.cover:hover {
+    transform: scale(1.04);
+}
+
+/* Smooth nav */
+nav a {
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+    body {
     font-family: Georgia, serif;
     margin: 0;
     color: white;
