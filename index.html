@@ -1,156 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Map To The Forgotten World</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Map To The Forgotten World</title>
 
-    <style>
-        body {
-            font-family: Georgia, serif;
-            margin: 0;
-            color: white;
-            text-align: center;
+<style>
+body {
+    font-family: Georgia, serif;
+    margin: 0;
+    color: white;
+    text-align: center;
+    background: radial-gradient(circle at top, #1b2a4a 0%, #0b1020 40%, #05070f 100%);
+    background-attachment: fixed;
+}
 
-            background: radial-gradient(circle at top, #1b2a4a 0%, #0b1020 40%, #05070f 100%);
-            background-attachment: fixed;
-        }
+/* NAV */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
 
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 20px;
-            font-size: 1.1rem;
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-        }
+nav a:hover {
+    opacity: 1;
+    color: #facc15;
+}
 
-        nav a:hover {
-            opacity: 1;
-            color: #facc15;
-        }
+/* HERO */
+.hero {
+    padding: 60px 20px;
+}
 
-        .hero {
-            padding: 60px 20px;
-        }
+.cover {
+    width: 300px;
+    max-width: 80%;
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.25);
+    transition: transform 0.3s ease;
+}
 
-        .cover {
-            width: 300px;
-            max-width: 80%;
-            border-radius: 15px;
-            box-shadow: 0 0 40px rgba(255,255,255,0.25);
-            transition: transform 0.3s ease;
-        }
+.cover:hover {
+    transform: scale(1.03);
+}
 
-        .cover:hover {
-            transform: scale(1.03);
-        }
+h1 {
+    font-size: 3rem;
+    margin-top: 25px;
+}
 
-        h1 {
-            font-size: 3rem;
-            margin-top: 25px;
-        }
+.author {
+    font-size: 1.2rem;
+    opacity: 0.85;
+}
 
-        .author {
-            font-size: 1.2rem;
-            opacity: 0.85;
-        }
+.coming-soon {
+    margin-top: 20px;
+    font-size: 1.4rem;
+    color: #facc15;
+    font-weight: bold;
+}
 
-        .coming-soon {
-            margin-top: 20px;
-            font-size: 1.4rem;
-            color: #facc15;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
+/* SECTIONS */
+.section {
+    max-width: 750px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: left;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
+}
 
-        .section {
-            max-width: 750px;
-            margin: 50px auto;
-            padding: 20px;
-            text-align: left;
+.section h2 {
+    text-align: center;
+    color: #facc15;
+}
 
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            backdrop-filter: blur(6px);
-        }
-
-        .section h2 {
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-            color: #facc15;
-        }
-
-        .section p {
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        footer {
-            margin-top: 60px;
-            padding: 20px;
-            opacity: 0.7;
-        }
-    </style>
+footer {
+    margin-top: 60px;
+    padding: 20px;
+    opacity: 0.7;
+}
+</style>
 </head>
 
 <body>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="books.html">Books</a>
-    </nav>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="books.html">Books</a>
+</nav>
 
-    <div class="hero">
-        <img src="a1d56683-d680-4d6a-82a9-de0e38b390bd.jpeg" alt="Book Cover" class="cover">
+<div class="hero">
+    <img src="a1d56683-d680-4d6a-82a9-de0e38b390bd.jpeg" class="cover">
 
-        <h1>The Map To The Forgotten World</h1>
+    <h1>The Map To The Forgotten World</h1>
+    <p class="author">A Fantasy Adventure by Prashmit Mohapatra</p>
+    <p class="coming-soon">Coming Soon</p>
+</div>
 
-        <p class="author">A Fantasy Adventure by Prashmit Mohapatra</p>
+<div class="section">
+    <h2>The Story</h2>
+    <p>A mysterious map leads to a forgotten world filled with secrets and danger.</p>
+</div>
 
-        <p class="coming-soon">Coming Soon</p>
-    </div>
+<div class="section">
+    <h2>About the Author</h2>
+    <p>Prashmit Mohapatra is a young author who enjoys writing adventure stories filled with mystery and imagination.</p>
+</div>
 
-    <div class="section">
-        <h2>The Story</h2>
-
-        <p>
-            Some maps lead to places. This one leads to a forgotten world.
-        </p>
-
-        <p>
-            Hidden secrets, ancient mysteries, and an adventure beyond imagination await.
-            What begins as curiosity turns into a journey deeper into the unknown.
-        </p>
-
-        <p>
-            A world lost to time. A path that should not be followed. A story waiting to be discovered.
-        </p>
-    </div>
-
-    <div class="section">
-        <h2>About the Author</h2>
-
-        <p>
-            Prashmit Mohapatra is a young author passionate about adventure, mystery, and storytelling.
-            He enjoys creating imaginative worlds filled with discovery and wonder.
-        </p>
-
-        <p>
-            <i>The Map To The Forgotten World</i> is his debut novel.
-        </p>
-    </div>
-
-    <footer>
-        ©️ 2026 Prashmit Mohapatra
-    </footer>
+<footer>
+©️ 2026 Prashmit Mohapatra
+</footer>
 
 </body>
 </html>
