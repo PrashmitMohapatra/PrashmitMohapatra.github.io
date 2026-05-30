@@ -3,110 +3,150 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Me</title>
+<title>About Me - Prashmit Mohapatra</title>
 
 <style>
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    animation: pageFade 0.8s ease-in;
+    margin: 0;
+    font-family: Georgia, serif;
+    color: white;
+
+    background:
+    radial-gradient(circle at top,
+    #1b2a4a 0%,
+    #0b1020 40%,
+    #05070f 100%);
+
+    background-attachment: fixed;
+
+    animation: fadePage 1s ease;
 }
 
-/* Smooth page load */
-@keyframes pageFade {
+@keyframes fadePage {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(15px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Smooth sections */
-.section {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+/* NAVIGATION */
 
-.section:hover {
-    transform: translateY(-3px);
-}
-
-/* Smooth image */
-.cover {
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.cover:hover {
-    transform: scale(1.04);
-}
-
-/* Smooth nav */
-nav a {
-    transition: color 0.3s ease, opacity 0.3s ease;
-}
-    body {
-    font-family: Georgia, serif;
-    margin: 0;
-    color: white;
-    text-align: center;
-    background: radial-gradient(circle at top, #1b2a4a 0%, #0b1020 40%, #05070f 100%);
-    background-attachment: fixed;
-}
-
-/* NAV */
 nav {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 20px;
+    gap: 35px;
+    padding: 25px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    opacity: 0.8;
+    font-size: 1.05rem;
+    transition: 0.3s;
 }
 
 nav a:hover {
-    opacity: 1;
     color: #facc15;
 }
 
-/* CONTENT */
-.section {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 25px;
-    text-align: left;
+/* TITLE */
+
+.hero {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    opacity: 0.8;
+}
+
+/* AUTHOR CARD */
+
+.card {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 35px;
+
     background: rgba(255,255,255,0.05);
-    border-radius: 15px;
+
     border: 1px solid rgba(255,255,255,0.08);
-    backdrop-filter: blur(6px);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(8px);
+
+    transition: 0.4s;
 }
 
-h1 {
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(255,255,255,0.12);
+}
+
+.card h2 {
     text-align: center;
-    font-size: 2.5rem;
-}
-
-h2 {
     color: #facc15;
+}
+
+.card p {
+    line-height: 1.9;
+    font-size: 1.05rem;
+}
+
+/* HIGHLIGHT BOX */
+
+.quote {
+    max-width: 700px;
+    margin: 30px auto;
+
+    padding: 20px;
+
+    border-left: 4px solid #facc15;
+
+    background: rgba(255,255,255,0.04);
+
+    font-style: italic;
+
     text-align: center;
 }
 
-p {
-    line-height: 1.8;
-}
+/* FOOTER */
 
 footer {
-    margin-top: 60px;
-    padding: 20px;
+    text-align: center;
+    padding: 30px;
     opacity: 0.7;
 }
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+.hero h1 {
+    font-size: 2.2rem;
+}
+
+.card {
+    margin: 20px;
+}
+
+}
+
 </style>
 </head>
 
@@ -118,30 +158,42 @@ footer {
     <a href="books.html">Books</a>
 </nav>
 
-<h1>About the Author</h1>
+<div class="hero">
+    <h1>About the Author</h1>
+    <p>Fantasy • Dark Fiction • Mystery</p>
+</div>
 
-<div class="section">
+<div class="card">
 
 <h2>Prashmit Mohapatra</h2>
 
 <p>
-I am a young storyteller with a strong interest in fantasy, mystery, and adventure writing.
-I enjoy creating worlds that feel larger than life, where every detail hides something meaningful.
+My name is <strong>Prashmit Mohapatra</strong>, and I am a Class 7 student from Odisha, India.
+I enjoy reading and writing stories that explore mystery, fantasy, and darker fictional worlds.
 </p>
 
 <p>
-My writing is inspired by curiosity—the idea that there is always something hidden just beyond what we can see.
-I like building stories where exploration plays a key role, and where characters are forced to question what they believe is real.
+My interest in writing grew from my love of books and the ideas they inspired. Many of my story ideas begin as small questions or random thoughts and gradually grow into larger worlds, characters, and mysteries.
 </p>
 
 <p>
-Writing is not just a hobby for me; it is a way of turning imagination into something others can experience.
+I am particularly interested in stories that hide secrets beneath the surface. I enjoy creating worlds where every discovery raises new questions and where the unknown always feels just beyond reach.
 </p>
 
 <p>
-<i>The Map To The Forgotten World</i> is my debut novel and the beginning of my journey as an author.
+My debut novel,
+<i>The Map To The Forgotten World</i>,
+reflects many of the themes I enjoy most: exploration, mystery, hidden truths, and the excitement of discovering something that should have remained lost.
 </p>
 
+<p>
+Although this is my first published work, I hope it is only the beginning. I plan to continue writing stories that challenge imagination and invite readers into worlds unlike their own.
+</p>
+
+</div>
+
+<div class="quote">
+"Every great adventure begins with a question."
 </div>
 
 <footer>
