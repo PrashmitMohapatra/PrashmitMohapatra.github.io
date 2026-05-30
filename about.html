@@ -1,131 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Map To The Forgotten World</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me</title>
 
-    <style>
-        body {
-            font-family: Georgia, serif;
-            margin: 0;
-            color: white;
-            text-align: center;
+<style>
+body {
+    font-family: Georgia, serif;
+    margin: 0;
+    color: white;
+    text-align: center;
+    background: radial-gradient(circle at top, #1b2a4a 0%, #0b1020 40%, #05070f 100%);
+    background-attachment: fixed;
+}
 
-            background: radial-gradient(circle at top, #1b2a4a 0%, #0b1020 40%, #05070f 100%);
-            background-attachment: fixed;
-        }
+/* NAV */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
 
-        .hero {
-            padding: 60px 20px;
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+}
 
-        .cover {
-            width: 300px;
-            max-width: 80%;
-            border-radius: 15px;
-            box-shadow: 0 0 40px rgba(255,255,255,0.25);
-            transition: transform 0.3s ease;
-        }
+nav a:hover {
+    opacity: 1;
+    color: #facc15;
+}
 
-        .cover:hover {
-            transform: scale(1.03);
-        }
+/* CONTENT */
+.section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 25px;
+    text-align: left;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
+}
 
-        h1 {
-            font-size: 3rem;
-            margin-top: 25px;
-        }
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
 
-        .author {
-            font-size: 1.2rem;
-            opacity: 0.85;
-        }
+h2 {
+    color: #facc15;
+    text-align: center;
+}
 
-        .coming-soon {
-            margin-top: 20px;
-            font-size: 1.4rem;
-            color: #facc15;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
+p {
+    line-height: 1.8;
+}
 
-        .section {
-            max-width: 750px;
-            margin: 50px auto;
-            padding: 20px;
-            text-align: left;
-
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            backdrop-filter: blur(6px);
-        }
-
-        .section h2 {
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-            color: #facc15;
-        }
-
-        .section p {
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        footer {
-            margin-top: 60px;
-            padding: 20px;
-            opacity: 0.7;
-            text-align: center;
-        }
-    </style>
+footer {
+    margin-top: 60px;
+    padding: 20px;
+    opacity: 0.7;
+}
+</style>
 </head>
 
 <body>
 
-    <div class="hero">
-        <img src="a1d56683-d680-4d6a-82a9-de0e38b390bd.jpeg" alt="The Map To The Forgotten World" class="cover">
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="books.html">Books</a>
+</nav>
 
-        <h1>The Map To The Forgotten World</h1>
+<h1>About the Author</h1>
 
-        <p class="author">A Fantasy Adventure by Prashmit Mohapatra</p>
+<div class="section">
 
-        <p class="coming-soon">Coming Soon</p>
-    </div>
+<h2>Prashmit Mohapatra</h2>
 
-    <div class="section">
-        <h2>About the Story</h2>
-        <p>
-            Some maps lead to places. This one leads to a forgotten world.
-        </p>
-        <p>
-            Hidden secrets, ancient mysteries, and an adventure beyond imagination await.
-            What begins as curiosity quickly turns into a journey where every discovery
-            raises new questions, and every path leads deeper into the unknown.
-        </p>
-        <p>
-            <i>The Map To The Forgotten World</i> is an adventure novel filled with mystery,
-            exploration, and the thrill of uncovering what was never meant to be found.
-        </p>
-    </div>
+<p>
+I am a young storyteller with a strong interest in fantasy, mystery, and adventure writing.
+I enjoy creating worlds that feel larger than life, where every detail hides something meaningful.
+</p>
 
-    <div class="section">
-        <h2>About the Author</h2>
-        <p>
-            Prashmit Mohapatra is a young author with a passion for adventure, mystery,
-            and imaginative storytelling. Inspired by exploration and discovery, he creates
-            stories that transport readers into unknown worlds.
-        </p>
-        <p>
-            <i>The Map To The Forgotten World</i> is his debut novel.
-        </p>
-    </div>
+<p>
+My writing is inspired by curiosity—the idea that there is always something hidden just beyond what we can see.
+I like building stories where exploration plays a key role, and where characters are forced to question what they believe is real.
+</p>
 
-    <footer>
-        ©️ 2026 Prashmit Mohapatra
-    </footer>
+<p>
+Writing is not just a hobby for me; it is a way of turning imagination into something others can experience.
+</p>
+
+<p>
+<i>The Map To The Forgotten World</i> is my debut novel and the beginning of my journey as an author.
+</p>
+
+</div>
+
+<footer>
+©️ 2026 Prashmit Mohapatra
+</footer>
 
 </body>
 </html>
