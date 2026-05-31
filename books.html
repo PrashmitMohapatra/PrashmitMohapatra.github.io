@@ -7,6 +7,66 @@
 
 <style>
 
+    /* ===== CINEMATIC INTRO OVERLAY ===== */
+
+#intro{
+    position:fixed;
+    inset:0;
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+
+    animation:fadeOutIntro 4s ease forwards;
+}
+
+.intro-text{
+    text-align:center;
+    animation:textRise 2s ease;
+}
+
+.intro-text h1{
+    font-size:2.5rem;
+    letter-spacing:3px;
+    opacity:0;
+    animation:fadeInText 1.5s ease forwards;
+}
+
+.intro-text p{
+    margin-top:10px;
+    opacity:0;
+    color:#cbd5e1;
+    animation:fadeInText 1.5s ease 0.8s forwards;
+}
+
+/* animations */
+
+@keyframes fadeInText{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeOutIntro{
+    0%{opacity:1;}
+    70%{opacity:1;}
+    100%{
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+@keyframes textRise{
+    from{transform:scale(0.98);}
+    to{transform:scale(1);}
+}
+
 /* ===== GLOBAL ===== */
 
 html {
@@ -198,6 +258,14 @@ footer {
 
 <body>
 
+    <!-- CINEMATIC INTRO -->
+<div id="intro">
+    <div class="intro-text">
+        <h1>PRASHMIT MOHAPATRA</h1>
+        <p>The Map To The Forgotten World</p>
+    </div>
+</div>
+
 <!-- SIDE ATMOSPHERE -->
 <div class="side-shadow left"></div>
 <div class="side-shadow right"></div>
@@ -243,6 +311,10 @@ const observer = new IntersectionObserver(entries => {
 
 book.forEach(b => observer.observe(b));
 </script>
+    <script>
+   // animation code here
+</script>
+</body>
 
 </body>
 </html>
