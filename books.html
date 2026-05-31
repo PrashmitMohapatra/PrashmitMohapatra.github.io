@@ -6,15 +6,69 @@
 <title>Books</title>
 
 <style>
+
+/* ===== GLOBAL ===== */
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    animation: pageFade 0.8s ease-in;
+    margin:0;
+    font-family: Georgia, serif;
+    color: white;
+    text-align: center;
+    overflow-x:hidden;
+
+    background:
+    radial-gradient(circle at top,
+        #17253f 0%,
+        #0a0f1d 45%,
+        #03040a 100%);
+
+    background-attachment: fixed;
+
+    animation: pageFade 1s ease-in;
 }
 
-/* Smooth page load */
+/* ===== FLOATING ATMOSPHERE ===== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+
+    background:
+        radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.06), transparent),
+        radial-gradient(1px 1px at 70% 60%, rgba(255,255,255,0.05), transparent),
+        radial-gradient(2px 2px at 40% 80%, rgba(255,255,255,0.04), transparent);
+
+    animation: drift 18s linear infinite;
+}
+
+@keyframes drift{
+    from{transform:translateY(0);}
+    to{transform:translateY(-40px);}
+}
+
+/* ===== SIDE SHADOWS ===== */
+
+.side-shadow{
+    position:fixed;
+    top:0;
+    width:100px;
+    height:100%;
+    opacity:0.07;
+    pointer-events:none;
+    background:linear-gradient(to bottom, transparent, #000, transparent);
+}
+
+.side-shadow.left{left:0;}
+.side-shadow.right{right:0; transform:scaleX(-1);}
+
+/* ===== PAGE FADE ===== */
+
 @keyframes pageFade {
     from {
         opacity: 0;
@@ -26,38 +80,8 @@ body {
     }
 }
 
-/* Smooth sections */
-.section {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+/* ===== NAV ===== */
 
-.section:hover {
-    transform: translateY(-3px);
-}
-
-/* Smooth image */
-.cover {
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.cover:hover {
-    transform: scale(1.04);
-}
-
-/* Smooth nav */
-nav a {
-    transition: color 0.3s ease, opacity 0.3s ease;
-}
-    body {
-    font-family: Georgia, serif;
-    margin: 0;
-    color: white;
-    text-align: center;
-    background: radial-gradient(circle at top, #1b2a4a 0%, #0b1020 40%, #05070f 100%);
-    background-attachment: fixed;
-}
-
-/* NAV */
 nav {
     display: flex;
     justify-content: center;
@@ -68,62 +92,115 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
-    opacity: 0.8;
+    opacity: 0.75;
+    transition: 0.3s;
 }
 
 nav a:hover {
     opacity: 1;
-    color: #facc15;
+    transform: translateY(-2px);
 }
 
-/* BOOK CARD */
+/* ===== TITLE ===== */
+
+h1 {
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+
+/* ===== BOOK CARD ===== */
+
 .book {
     max-width: 750px;
     margin: 60px auto;
-    padding: 25px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 15px;
-    border: 1px solid rgba(255,255,255,0.08);
-    backdrop-filter: blur(6px);
+    padding: 30px;
+
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 18px;
+    backdrop-filter: blur(10px);
+
+    opacity:0;
+    transform: translateY(25px);
+    transition: all 0.8s ease;
 }
+
+.book.visible{
+    opacity:1;
+    transform: translateY(0);
+}
+
+.book:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(255,255,255,0.08);
+}
+
+/* ===== COVER ===== */
 
 .cover {
     width: 250px;
     border-radius: 12px;
-    box-shadow: 0 0 30px rgba(255,255,255,0.2);
-    transition: transform 0.3s ease;
+
+    box-shadow: 0 0 35px rgba(0,0,0,0.6);
+
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .cover:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(255,255,255,0.1);
 }
 
+/* ===== TEXT ===== */
+
 .title {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     margin-top: 15px;
     font-weight: bold;
+    letter-spacing:0.5px;
 }
 
 .status {
     margin-top: 5px;
-    color: #facc15;
+    color: #cbd5e1;
     font-weight: bold;
+    opacity:0.9;
 }
 
 .desc {
     margin-top: 15px;
     line-height: 1.8;
+    opacity:0.9;
 }
+
+/* ===== FOOTER ===== */
 
 footer {
     margin-top: 60px;
     padding: 20px;
-    opacity: 0.7;
+    opacity: 0.6;
 }
+
+/* ===== MOBILE ===== */
+
+@media(max-width:700px){
+    .book{
+        margin:30px 15px;
+    }
+
+    .side-shadow{
+        display:none;
+    }
+}
+
 </style>
 </head>
 
 <body>
+
+<!-- SIDE ATMOSPHERE -->
+<div class="side-shadow left"></div>
+<div class="side-shadow right"></div>
 
 <nav>
     <a href="index.html">Home</a>
@@ -151,6 +228,21 @@ footer {
 <footer>
 ©️ 2026 Prashmit Mohapatra
 </footer>
+
+<!-- SCROLL REVEAL -->
+<script>
+const book = document.querySelectorAll('.book');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+        }
+    });
+}, {threshold:0.2});
+
+book.forEach(b => observer.observe(b));
+</script>
 
 </body>
 </html>
