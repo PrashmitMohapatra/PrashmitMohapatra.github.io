@@ -11,35 +11,75 @@ html {
     scroll-behavior: smooth;
 }
 
+/* ===== BODY (DEEP CINEMATIC DARK) ===== */
+
 body {
     margin: 0;
     font-family: Georgia, serif;
     color: white;
+    overflow-x:hidden;
 
     background:
     radial-gradient(circle at top,
-    #1b2a4a 0%,
-    #0b1020 40%,
-    #05070f 100%);
+        #17253f 0%,
+        #0a0f1d 45%,
+        #03040a 100%);
 
     background-attachment: fixed;
 
-    animation: fadePage 1s ease;
+    animation: fadePage 1.2s ease;
 }
+
+/* ===== FLOATING MIST PARTICLES ===== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+
+    background:
+        radial-gradient(2px 2px at 15% 25%, rgba(255,255,255,0.06), transparent),
+        radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.05), transparent),
+        radial-gradient(2px 2px at 80% 30%, rgba(255,255,255,0.04), transparent);
+
+    animation: drift 20s linear infinite;
+}
+
+@keyframes drift{
+    from{transform:translateY(0);}
+    to{transform:translateY(-50px);}
+}
+
+/* ===== SIDE SHADOW ATMOSPHERE ===== */
+
+.side-shadow{
+    position:fixed;
+    top:0;
+    width:100px;
+    height:100%;
+    opacity:0.07;
+    pointer-events:none;
+    background:linear-gradient(to bottom, transparent, #000, transparent);
+}
+
+.side-shadow.left{ left:0; }
+.side-shadow.right{ right:0; transform:scaleX(-1); }
+
+/* ===== PAGE FADE ===== */
 
 @keyframes fadePage {
     from {
         opacity: 0;
         transform: translateY(15px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* NAVIGATION */
+/* ===== NAVIGATION ===== */
 
 nav {
     display: flex;
@@ -52,63 +92,71 @@ nav a {
     color: white;
     text-decoration: none;
     font-size: 1.05rem;
+    opacity:0.85;
     transition: 0.3s;
 }
 
 nav a:hover {
-    color: #facc15;
+    opacity:1;
+    transform: translateY(-2px);
 }
 
-/* TITLE */
+/* ===== HERO ===== */
 
 .hero {
     text-align: center;
-    padding: 30px 20px;
+    padding: 35px 20px;
 }
 
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 10px;
+    letter-spacing:1px;
 }
 
 .hero p {
-    opacity: 0.8;
+    opacity: 0.75;
 }
 
-/* AUTHOR CARD */
+/* ===== CARD (ABOUT CONTENT) ===== */
 
 .card {
     max-width: 850px;
     margin: 40px auto;
     padding: 35px;
 
-    background: rgba(255,255,255,0.05);
-
-    border: 1px solid rgba(255,255,255,0.08);
-
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
     border-radius: 18px;
+    backdrop-filter: blur(10px);
 
-    backdrop-filter: blur(8px);
+    opacity:0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
 
-    transition: 0.4s;
+.card.visible{
+    opacity:1;
+    transform:translateY(0);
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 30px rgba(255,255,255,0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(255,255,255,0.08);
 }
 
 .card h2 {
     text-align: center;
-    color: #facc15;
+    color: #e5e7eb;
 }
 
 .card p {
     line-height: 1.9;
     font-size: 1.05rem;
+    opacity:0.9;
 }
 
-/* HIGHLIGHT BOX */
+/* ===== QUOTE ===== */
 
 .quote {
     max-width: 700px;
@@ -116,24 +164,31 @@ nav a:hover {
 
     padding: 20px;
 
-    border-left: 4px solid #facc15;
-
-    background: rgba(255,255,255,0.04);
+    border-left: 3px solid #cbd5e1;
+    background: rgba(255,255,255,0.03);
 
     font-style: italic;
-
     text-align: center;
+
+    opacity:0;
+    transform:translateY(15px);
+    transition: all 0.8s ease;
 }
 
-/* FOOTER */
+.quote.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ===== FOOTER ===== */
 
 footer {
     text-align: center;
     padding: 30px;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
-/* MOBILE */
+/* ===== MOBILE ===== */
 
 @media (max-width: 700px) {
 
@@ -145,12 +200,20 @@ footer {
     margin: 20px;
 }
 
+.side-shadow{
+    display:none;
+}
+
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- SIDE ATMOSPHERE -->
+<div class="side-shadow left"></div>
+<div class="side-shadow right"></div>
 
 <nav>
     <a href="index.html">Home</a>
@@ -199,6 +262,21 @@ Although this is my first published work, I hope it is only the beginning. I pla
 <footer>
 ©️ 2026 Prashmit Mohapatra
 </footer>
+
+<!-- SCROLL ANIMATION -->
+<script>
+const elements = document.querySelectorAll('.card, .quote');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+        }
+    });
+}, {threshold:0.15});
+
+elements.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
