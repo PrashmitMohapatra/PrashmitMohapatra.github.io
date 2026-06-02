@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVTPCL96K"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVTPCL96K"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -288,6 +287,34 @@ nav a:hover{
     background:#1f2937;
 }
 
+.buy-section{
+    margin-top:25px;
+    text-align:center;
+}
+
+.buy-button{
+    display:inline-block;
+    padding:15px 35px;
+    background:linear-gradient(135deg,#facc15,#f59e0b);
+    color:#000;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:1.05rem;
+    border-radius:12px;
+    transition:.35s;
+    box-shadow:0 0 20px rgba(250,204,21,.25);
+}
+
+.buy-button:hover{
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:0 0 30px rgba(250,204,21,.55);
+}
+
+.buy-note{
+    margin-top:12px;
+    opacity:.8;
+}
+
 /* ===== FOOTER ===== */
 
 footer{
@@ -309,15 +336,13 @@ footer{
 
 <body>
 
-    <!-- CINEMATIC INTRO -->
-<div id="intro">
+    <div id="intro">
     <div class="intro-text">
         <h1>PRASHMIT MOHAPATRA</h1>
         <p>The Map To The Forgotten World</p>
     </div>
 </div>
 
-<!-- SIDE EFFECT -->
 <div class="side-shadow left"></div>
 <div class="side-shadow right"></div>
 
@@ -352,13 +377,23 @@ footer{
 
 <p>A Fantasy Adventure by Prashmit Mohapatra</p>
 
-<p><b style="color:#cbd5e1;">COMING SOON</b></p>
+<div class="buy-section">
 
-<p>Releasing soon on AMAZON<br>Ebook and Paperback format</p>
+    <a href="https://www.amazon.in/dp/B0H2Y3VVTT"
+       class="buy-button"
+       target="_blank">
+
+        📖 Buy eBook Now
+
+    </a>
+
+    <p class="buy-note">
+        Available on Amazon Kindle
+    </p>
 
 </div>
 
-<!-- ===== FULL RESTORED CONTENT ===== -->
+</div>
 
 <div class="section">
 <h2>About Me</h2>
