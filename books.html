@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVTPCL96K"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVTPCL96K"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -242,6 +241,36 @@ h1 {
     opacity:0.9;
 }
 
+/* ===== BUY SECTION ===== */
+
+.buy-section{
+    margin-top:25px;
+    text-align:center;
+}
+
+.buy-button{
+    display:inline-block;
+    padding:15px 35px;
+    background:linear-gradient(135deg,#facc15,#f59e0b);
+    color:#000;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:1.05rem;
+    border-radius:12px;
+    transition:.35s;
+    box-shadow:0 0 20px rgba(250,204,21,.25);
+}
+
+.buy-button:hover{
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:0 0 30px rgba(250,204,21,.55);
+}
+
+.buy-note{
+    margin-top:12px;
+    opacity:.8;
+}
+
 /* ===== FOOTER ===== */
 
 footer {
@@ -267,15 +296,13 @@ footer {
 
 <body>
 
-    <!-- CINEMATIC INTRO -->
-<div id="intro">
+    <div id="intro">
     <div class="intro-text">
         <h1>PRASHMIT MOHAPATRA</h1>
         <p>The Map To The Forgotten World</p>
     </div>
 </div>
 
-<!-- SIDE ATMOSPHERE -->
 <div class="side-shadow left"></div>
 <div class="side-shadow right"></div>
 
@@ -299,6 +326,22 @@ footer {
         A mysterious map leads to a forgotten world filled with hidden secrets, ancient mysteries,
         and a journey that changes everything it touches.
     </div>
+    
+    <div class="buy-section">
+
+        <a href="https://www.amazon.in/dp/B0H2Y3VVTT"
+           class="buy-button"
+           target="_blank">
+    
+            📖 Buy eBook Now
+    
+        </a>
+    
+        <p class="buy-note">
+            Read on Amazon Kindle
+        </p>
+    
+    </div>
 
 </div>
 
@@ -306,7 +349,6 @@ footer {
 ©️ 2026 Prashmit Mohapatra
 </footer>
 
-<!-- SCROLL REVEAL -->
 <script>
 const book = document.querySelectorAll('.book');
 
@@ -320,10 +362,5 @@ const observer = new IntersectionObserver(entries => {
 
 book.forEach(b => observer.observe(b));
 </script>
-    <script>
-   // animation code here
-</script>
-</body>
-
 </body>
 </html>
