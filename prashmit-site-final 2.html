@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Prashmit Mohapatra — The Forgotten World</title>
+<meta name="description" content="Official site of Prashmit Mohapatra, author of The Forgotten World."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C9A84C;--gold-light:#D4AF37;--gold-dim:rgba(201,168,76,0.3);
+  --dark:#120A02;--dark2:#1E1006;--dark3:#2A1A0A;
+  --text:#E8D5B0;--text-dim:#9A8460;
+  --nav-h:72px;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--dark);color:var(--text);
+  font-family:'Lora',serif;font-size:18px;line-height:1.7;
+  cursor:none;overflow-x:hidden;
+}
+::selection{background:var(--gold-dim);color:var(--gold-light)}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--dark)}
+::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px}
+
+/* ── Progress bar ── */
+#progress{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--gold);z-index:10001;transition:width .05s linear}
+
+/* ── Custom cursor ── */
+#cursor-ring,#cursor-dot{position:fixed;border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);transition:opacity .3s}
+#cursor-ring{width:22px;height:22px;border:2px solid var(--gold);opacity:.8}
+#cursor-dot{width:6px;height:6px;background:var(--gold)}
+
+/* ── Particle canvas ── */
+#particle-canvas{position:fixed;inset:0;pointer-events:none;z-index:9999}
+
+/* ── Nav ── */
+nav{
+  position:fixed;top:0;left:0;right:0;height:var(--nav-h);
+  display:flex;align-items:center;justify-content:center;gap:48px;
+  background:rgba(18,10,2,.85);backdrop-filter:blur(12px);
+  z-index:1000;border-bottom:1px solid var(--gold-dim);
+}
+nav a{
+  font-family:'Cinzel Decorative',serif;font-size:.75rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--text-dim);text-decoration:none;
+  position:relative;padding-bottom:4px;transition:color .3s;
+}
+nav a::after{
+  content:'';position:absolute;bottom:0;left:0;width:0;height:1px;
+  background:var(--gold);transition:width .3s;
+}
+nav a:hover{color:var(--gold)}
+nav a:hover::after{width:100%}
+
+/* ── Sections ── */
+section{scroll-margin-top:var(--nav-h)}
+
+/* ── Hero ── */
+#hero{
+  position:relative;height:100vh;display:flex;align-items:center;
+  justify-content:center;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:-10%;
+  background-image:
+    linear-gradient(rgba(201,168,76,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,168,76,.07) 1px,transparent 1px);
+  background-size:40px 40px;
+  background-color:var(--dark);
+}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 24px}
+.hero-eyebrow{
+  font-style:italic;color:var(--text-dim);font-size:.95rem;
+  letter-spacing:.05em;margin-bottom:24px;min-height:1.5em;
+}
+.hero-name{
+  font-family:'Cinzel Decorative',serif;font-size:clamp(2.5rem,8vw,6rem);
+  color:var(--gold);letter-spacing:.05em;line-height:1.1;
+  text-shadow:0 0 60px rgba(201,168,76,.25);
+}
+.hero-book{
+  font-family:'Cinzel Decorative',serif;font-size:clamp(.9rem,2.5vw,1.3rem);
+  letter-spacing:.35em;text-transform:uppercase;color:var(--text-dim);
+  margin-top:20px;border-top:1px solid var(--gold-dim);
+  padding-top:16px;display:inline-block;
+}
+.hero-scroll{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+  color:var(--gold-dim);font-size:1.4rem;animation:bounce 2s infinite;
+}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* ── SVG map overlay in hero ── */
+#hero-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible}
+.map-path{fill:none;stroke:var(--gold);stroke-width:1.5;stroke-dasharray:6 10;opacity:.7}
+.map-pin{fill:var(--gold);opacity:0;transition:opacity .5s}
+
+/* ── Section layout ── */
+.section-inner{max-width:900px;margin:0 auto;padding:120px 32px}
+.section-label{
+  display:block;font-family:'Cinzel Decorative',serif;font-size:.7rem;
+  letter-spacing:.4em;text-transform:uppercase;color:var(--gold);
+  opacity:.55;margin-bottom:10px;
+}
+.section-title{
+  font-family:'Cinzel Decorative',serif;font-size:clamp(1.8rem,4vw,3rem);
+  color:var(--gold);margin-bottom:48px;
+}
+.section-title.center{text-align:center}
+.section-label.center{text-align:center}
+
+/* ── Book section ── */
+#book{background:linear-gradient(to bottom,transparent,rgba(42,26,10,.5),transparent)}
+.book-layout{display:flex;gap:64px;align-items:center;flex-wrap:wrap;justify-content:center}
+.book-cover-wrap{flex-shrink:0}
+.book-cover-img{
+  max-width:280px;width:100%;border:2px solid var(--gold-dim);
+  transform:rotate(-2deg);transition:transform .5s;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+}
+.book-cover-img:hover{transform:rotate(0deg)}
+.book-cover-fallback{
+  width:260px;height:370px;border:2px solid var(--gold);
+  background:linear-gradient(135deg,var(--dark) 0%,var(--dark3) 100%);
+  position:relative;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:16px;
+  transform:rotate(-2deg);transition:transform .5s;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);overflow:hidden;
+}
+.book-cover-fallback:hover{transform:rotate(0deg)}
+.bcf-grid{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(201,168,76,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,168,76,.08) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+.bcf-border{position:absolute;inset:8px;border:1px solid rgba(201,168,76,.25)}
+.bcf-corner{position:absolute;width:12px;height:12px;border-color:var(--gold);border-style:solid;opacity:.7}
+.bcf-corner.tl{top:12px;left:12px;border-width:2px 0 0 2px}
+.bcf-corner.tr{top:12px;right:12px;border-width:2px 2px 0 0}
+.bcf-corner.bl{bottom:12px;left:12px;border-width:0 0 2px 2px}
+.bcf-corner.br{bottom:12px;right:12px;border-width:0 2px 2px 0}
+.bcf-title{
+  font-family:'Cinzel Decorative',serif;font-size:1.1rem;
+  color:var(--gold);letter-spacing:.15em;text-align:center;
+  line-height:1.4;position:relative;z-index:1;
+}
+.bcf-author{
+  font-family:'Lora',serif;font-size:.7rem;letter-spacing:.3em;
+  color:var(--gold-dim);text-transform:uppercase;position:relative;z-index:1;
+}
+.bcf-compass{position:absolute;bottom:20px;right:20px;opacity:.5}
+.book-text{flex:1;min-width:280px}
+.book-text p{color:var(--text-dim);margin-bottom:20px;font-size:1rem;line-height:1.8}
+.buy-btn{
+  display:inline-block;margin-top:12px;padding:14px 36px;
+  border:1px solid var(--gold);color:var(--gold);
+  font-family:'Cinzel Decorative',serif;font-size:.75rem;letter-spacing:.2em;
+  text-transform:uppercase;text-decoration:none;
+  background:transparent;cursor:none;
+  transition:background .3s,color .3s;position:relative;overflow:hidden;
+}
+.buy-btn:hover{background:var(--gold);color:var(--dark)}
+.buy-btn[data-buy="true"]{cursor:none}
+
+/* ── About ── */
+#about{background:rgba(42,26,10,.3)}
+.about-text p{color:var(--text-dim);margin-bottom:20px;font-size:1rem;line-height:1.8}
+
+/* ── World ── */
+#world .lore-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px;margin-top:24px}
+.lore-card{
+  border:1px solid var(--gold-dim);padding:28px;
+  background:rgba(42,26,10,.4);position:relative;
+}
+.lore-card::before{
+  content:'✦';position:absolute;top:-10px;left:20px;
+  color:var(--gold);background:var(--dark2);padding:0 8px;font-size:.8rem;
+}
+.lore-card h4{
+  font-family:'Cinzel Decorative',serif;color:var(--gold);
+  font-size:.85rem;margin-bottom:10px;letter-spacing:.1em;
+}
+.lore-card p{color:var(--text-dim);font-size:.9rem;line-height:1.7;font-style:italic}
+
+/* ── Footer ── */
+footer{
+  text-align:center;padding:60px 32px 40px;
+  border-top:1px solid var(--gold-dim);
+  background:linear-gradient(to top,rgba(42,26,10,.5),transparent);
+}
+.footer-sigil{
+  font-size:2rem;color:var(--gold);cursor:none;background:none;
+  border:none;display:inline-block;margin-bottom:20px;
+  transition:text-shadow .3s;user-select:none;
+}
+.footer-sigil:hover{text-shadow:0 0 20px var(--gold)}
+.footer-copy{color:var(--text-dim);font-size:.85rem;letter-spacing:.1em;margin-top:16px}
+.footer-links{display:flex;gap:24px;justify-content:center;margin:16px 0}
+.footer-links a{color:var(--text-dim);text-decoration:none;font-size:.85rem;letter-spacing:.1em;transition:color .3s}
+.footer-links a:hover{color:var(--gold)}
+.footer-end{height:1px}
+
+/* ── Flash overlay ── */
+#flash{
+  position:fixed;inset:0;z-index:20000;pointer-events:none;
+  background:radial-gradient(ellipse at center,rgba(201,168,76,.8) 0%,transparent 70%);
+  opacity:0;
+}
+
+/* ── Easter egg overlay (MAPS) ── */
+#maps-overlay{
+  position:fixed;inset:0;z-index:19000;display:flex;align-items:flex-end;
+  visibility:hidden;
+}
+#maps-overlay.show{visibility:visible}
+.maps-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.6)}
+.maps-panel{
+  position:relative;width:100%;max-height:60vh;overflow-y:auto;
+  background:linear-gradient(to top,var(--dark3),var(--dark2));
+  border-top:2px solid var(--gold);padding:48px 40px 40px;
+  transform:translateY(100%);transition:transform .5s cubic-bezier(.16,1,.3,1);
+}
+#maps-overlay.show .maps-panel{transform:translateY(0)}
+.maps-panel h3{
+  font-family:'Cinzel Decorative',serif;color:var(--gold);
+  font-size:1.3rem;margin-bottom:24px;letter-spacing:.15em;
+}
+.maps-panel p{color:var(--text-dim);font-style:italic;line-height:1.9;margin-bottom:16px;font-size:1rem}
+.maps-close{
+  margin-top:24px;padding:10px 28px;border:1px solid var(--gold);
+  color:var(--gold);background:none;cursor:none;font-family:'Lora',serif;
+  font-size:.85rem;letter-spacing:.15em;transition:background .3s,color .3s;
+}
+.maps-close:hover{background:var(--gold);color:var(--dark)}
+
+/* ── Sigil tooltip ── */
+#sigil-tip{
+  position:fixed;bottom:140px;left:50%;transform:translateX(-50%);
+  background:var(--dark3);border:1px solid var(--gold);
+  padding:20px 24px;z-index:18000;text-align:center;
+  max-width:300px;opacity:0;pointer-events:none;
+  transition:opacity .4s;
+}
+#sigil-tip.show{opacity:1}
+#sigil-tip p{color:var(--text-dim);font-style:italic;font-size:.85rem;line-height:1.7;margin-top:10px}
+
+/* ── Scroll reward toast ── */
+#scroll-reward{
+  position:fixed;bottom:30px;left:50%;transform:translateX(-50%);
+  background:var(--dark3);border:1px solid var(--gold);
+  padding:14px 28px;z-index:18000;color:var(--gold);
+  font-family:'Cinzel Decorative',serif;font-size:.75rem;letter-spacing:.2em;
+  opacity:0;pointer-events:none;transition:opacity .5s;white-space:nowrap;
+}
+#scroll-reward.show{opacity:1}
+
+/* ── Dividers ── */
+.gold-line{width:60px;height:1px;background:var(--gold-dim);margin:0 auto 40px}
+</style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div id="progress"></div>
+
+<!-- Custom cursor -->
+<div id="cursor-ring"></div>
+<div id="cursor-dot"></div>
+
+<!-- Particle canvas -->
+<canvas id="particle-canvas"></canvas>
+
+<!-- Flash overlay -->
+<div id="flash"></div>
+
+<!-- MAPS easter egg overlay -->
+<div id="maps-overlay">
+  <div class="maps-backdrop" id="maps-backdrop"></div>
+  <div class="maps-panel">
+    <h3>✦ A Lost Page, Found</h3>
+    <p>"Before the cartographers arrived, the people of the forgotten world had no word for 'lost.' Every path led somewhere. Every silence held a name. It was only when the mapmakers came — with their straight lines and their certainties — that the world began to forget itself."</p>
+    <p>"The first map was not a record. It was a wound. And from that wound, the forgetting spread like water into cracked stone — slow, patient, and total."</p>
+    <p>"This page was found pressed inside a compass. The compass pointed nowhere. That seemed right."</p>
+    <button class="maps-close" id="maps-close">Close the Page</button>
+  </div>
+</div>
+
+<!-- Sigil tooltip -->
+<div id="sigil-tip">
+  <svg width="60" height="60" viewBox="0 0 100 100" fill="none" stroke="#C9A84C" stroke-width="1">
+    <line x1="10" y1="50" x2="90" y2="50"/><line x1="50" y1="10" x2="50" y2="90"/>
+    <path d="M20,20 Q35,50 50,30 Q65,10 80,50 Q65,70 50,60 Q35,80 20,50 Z" stroke-dasharray="4 4"/>
+    <circle cx="50" cy="50" r="4" fill="#C9A84C"/>
+    <text x="50" y="95" text-anchor="middle" font-size="8" fill="#C9A84C" font-family="serif">✕</text>
+  </svg>
+  <p>The cartographer's last known coordinates:<br/>47°N, 122°W.<br/>He never returned.</p>
+</div>
+
+<!-- Scroll reward -->
+<div id="scroll-reward">You reached the end of the known world. ✦</div>
+
+<!-- Navigation -->
+<nav>
+  <a href="#hero">Home</a>
+  <a href="#book">Book</a>
+  <a href="#about">About</a>
+  <a href="#world">The World</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg" id="hero-bg"></div>
+
+  <!-- Animated SVG map line -->
+  <svg id="hero-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <path id="map-path" class="map-path"
+      d="M-50,700 C100,650 200,400 350,350 S550,200 650,280 S820,450 950,380 S1150,180 1300,240 S1450,350 1500,300"/>
+    <circle class="map-pin" id="pin1" cx="350" cy="350" r="5"/>
+    <circle class="map-pin" id="pin2" cx="650" cy="280" r="5"/>
+    <circle class="map-pin" id="pin3" cx="950" cy="380" r="5"/>
+    <circle class="map-pin" id="pin4" cx="1300" cy="240" r="5"/>
+  </svg>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow" id="hero-eyebrow"></p>
+    <h1 class="hero-name">Prashmit<br/>Mohapatra</h1>
+    <p class="hero-book">
+      <span title="Before it was forgotten, it was everywhere. All maps led there.">The</span>
+      <span title="The cartographers called it the Seventh Continent. They were silenced."> Forgotten World</span>
+    </p>
+  </div>
+
+  <div class="hero-scroll">↓</div>
+</section>
+
+<!-- ── BOOK ── -->
+<section id="book">
+  <div class="section-inner">
+    <span class="section-label center">II · The Book</span>
+    <h2 class="section-title center scramble-heading">The Forgotten World</h2>
+    <div class="gold-line"></div>
+    <div class="book-layout">
+      <div class="book-cover-wrap">
+        <img
+          id="book-img"
+          src="https://prashmitmohapatra.github.io/book-cover.jpg"
+          alt="The Forgotten World — Book Cover"
+          class="book-cover-img"
+          onerror="this.style.display='none';document.getElementById('book-cover-fallback').style.display='flex'"
+        />
+        <div class="book-cover-fallback" id="book-cover-fallback" style="display:none">
+          <div class="bcf-grid"></div>
+          <div class="bcf-border"></div>
+          <div class="bcf-corner tl"></div><div class="bcf-corner tr"></div>
+          <div class="bcf-corner bl"></div><div class="bcf-corner br"></div>
+          <p class="bcf-author">Prashmit Mohapatra</p>
+          <p class="bcf-title">The<br/>Forgotten<br/>World</p>
+          <svg class="bcf-compass" width="44" height="44" viewBox="0 0 100 100" fill="none" stroke="#C9A84C" stroke-width="1.5">
+            <circle cx="50" cy="50" r="38"/>
+            <path d="M50 12 L55 44 L88 50 L55 56 L50 88 L45 56 L12 50 L45 44Z" fill="#C9A84C" fill-opacity=".4" stroke="none"/>
+          </svg>
+        </div>
+      </div>
+      <div class="book-text">
+        <p>In the age before maps, there was a world that all other worlds dreamed of — vast and impossible and humming with a quiet kind of power that had no name yet.</p>
+        <p>Then came the cartographers, and with their lines and borders, something immeasurable was lost. Not destroyed. Not erased. Simply… forgotten.</p>
+        <p>One scholar. One impossible map. One chance to remember what the world has chosen to leave behind.</p>
+        <a class="buy-btn" href="#" data-buy="true" data-url="https://amazon.com">Order Your Copy</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="section-inner">
+    <span class="section-label">III · About</span>
+    <h2 class="section-title scramble-heading">Prashmit Mohapatra</h2>
+    <div class="gold-line" style="margin:0 0 40px"></div>
+    <div class="about-text">
+      <p>Prashmit Mohapatra writes at the intersection of history, mythology, and the deep human need to name what cannot be named. His work explores the spaces between maps — the territories that exist just beyond the edge of the known world.</p>
+      <p>Drawn to questions of memory, cartography, and the stories that survive in the silence between records, Prashmit spent years tracing the borders of forgotten places before setting them to page.</p>
+      <p>The Forgotten World is his debut — a novel that begins where all good maps end.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE WORLD ── -->
+<section id="world">
+  <div class="section-inner">
+    <span class="section-label center">IV · The World</span>
+    <h2 class="section-title center scramble-heading">A Place Between Maps</h2>
+    <div class="gold-line"></div>
+    <p style="color:var(--text-dim);text-align:center;max-width:600px;margin:0 auto 48px;font-style:italic">"Every map is a theory. And every theory has a border. Beyond that border — the forgotten world begins."</p>
+    <div class="lore-grid">
+      <div class="lore-card">
+        <h4>The Cartographers' Guild</h4>
+        <p>An ancient order of mapmakers who believed that naming a place into existence was an act of power — and that some places were better left unnamed.</p>
+      </div>
+      <div class="lore-card">
+        <h4>The Unmarked Coast</h4>
+        <p>A shoreline that appears on no official chart, yet sailors have always known how to find it. The sea remembers what the maps have forgotten.</p>
+      </div>
+      <div class="lore-card">
+        <h4>The Silent Archive</h4>
+        <p>A library built without a catalog. Every book is shelved by the feeling it produces rather than its subject. The forgotten world had its own logic.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <button class="footer-sigil" id="sigil-btn" title="✦">✦</button>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">Goodreads</a>
+    <a href="#">Contact</a>
+  </div>
+  <p class="footer-copy">© 2025 Prashmit Mohapatra. All rights reserved.</p>
+  <div class="footer-end" id="footer-end"></div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+
+/* ── Console Easter Egg ── */
+console.log(
+  '%c\n' +
+  '  ╔══════════════════════════════════════╗\n' +
+  '  ║    T H E   F O R G O T T E N        ║\n' +
+  '  ║          W O R L D                  ║\n' +
+  '  ║                                     ║\n' +
+  '  ║        ·  N  ·                      ║\n' +
+  '  ║      ·       ·                      ║\n' +
+  '  ║   W ──── ✦ ──── E                  ║\n' +
+  '  ║      ·       ·                      ║\n' +
+  '  ║        ·  S  ·                      ║\n' +
+  '  ║                                     ║\n' +
+  '  ║  You found the hidden passage.      ║\n' +
+  '  ║  "The map is not the territory —    ║\n' +
+  '  ║   but it is the only guide we       ║\n' +
+  '  ║   have into the forgotten world."   ║\n' +
+  '  ║                           — P.M.   ║\n' +
+  '  ╚══════════════════════════════════════╝',
+  'color:#C9A84C;font-family:monospace;font-size:12px;'
+);
+
+/* ── Time greeting ── */
+var greetings = [
+  [5,11,'The morning mist still clings to the forgotten shores...'],
+  [11,18,'Even in daylight, some maps lead only deeper into shadow...'],
+  [18,21,'As dusk falls, the old world stirs...'],
+  [21,24,'Only night-wanderers find what the daylight hides...'],
+  [0,5,'Only night-wanderers find what the daylight hides...'],
+];
+var h = new Date().getHours();
+for(var i=0;i<greetings.length;i++){
+  if(h>=greetings[i][0]&&h<greetings[i][1]){
+    document.getElementById('hero-eyebrow').textContent = greetings[i][2];
+    break;
+  }
+}
+
+/* ── Custom Cursor ── */
+var ring = document.getElementById('cursor-ring');
+var dot = document.getElementById('cursor-dot');
+var mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+(function cursorLoop(){
+  rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12;
+  ring.style.left=rx+'px'; ring.style.top=ry+'px';
+  requestAnimationFrame(cursorLoop);
+})();
+
+/* ── Reading Progress ── */
+var progress = document.getElementById('progress');
+window.addEventListener('scroll',function(){
+  var total = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = (total>0?(window.scrollY/total*100):0)+'%';
+});
+
+/* ── Parallax Hero ── */
+var heroBg = document.getElementById('hero-bg');
+window.addEventListener('scroll',function(){
+  heroBg.style.transform = 'translateY('+(window.scrollY*-0.4)+'px)';
+},{ passive:true });
+
+/* ── Particle System ── */
+var canvas = document.getElementById('particle-canvas');
+var ctx = canvas.getContext('2d');
+var particles = [];
+var emberParticles = [];
+var mouseX=0, mouseY=0;
+
+function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+resizeCanvas();
+window.addEventListener('resize',resizeCanvas);
+document.addEventListener('mousemove',function(e){mouseX=e.clientX;mouseY=e.clientY;spawnParticles(e.clientX,e.clientY);});
+
+function spawnParticles(x,y){
+  if(particles.length>60) return;
+  for(var i=0;i<2;i++){
+    particles.push({
+      x:x+(Math.random()-0.5)*20,
+      y:y+(Math.random()-0.5)*20,
+      vx:(Math.random()-0.5)*0.8,
+      vy:(Math.random()-0.5)*0.8,
+      r:Math.random()*3+1,
+      life:1,
+      decay:Math.random()*0.01+0.008
+    });
+  }
+}
+
+function spawnEmbers(){
+  if(emberParticles.length>30) return;
+  var footer = document.querySelector('footer');
+  if(!footer) return;
+  var fr = footer.getBoundingClientRect();
+  if(fr.top > window.innerHeight+200) return;
+  for(var i=0;i<2;i++){
+    emberParticles.push({
+      x: fr.left + Math.random()*fr.width,
+      y: window.innerHeight,
+      vx:(Math.random()-0.5)*0.5,
+      vy:-(Math.random()*0.8+0.3),
+      r:Math.random()*2.5+0.5,
+      life:1,
+      decay:Math.random()*0.006+0.004,
+      hue:Math.random()*30+10
+    });
+  }
+}
+
+var burstActive=false, burstParticles=[];
+function triggerBurst(){
+  for(var i=0;i<60;i++){
+    var angle=Math.random()*Math.PI*2;
+    var speed=Math.random()*6+2;
+    burstParticles.push({
+      x:window.innerWidth/2,y:window.innerHeight,
+      vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed - Math.random()*4,
+      r:Math.random()*4+1,life:1,decay:0.02
+    });
+  }
+}
+
+setInterval(spawnEmbers, 300);
+
+(function loop(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  // Main particles — drift toward mouse
+  for(var i=particles.length-1;i>=0;i--){
+    var p=particles[i];
+    var dx=mouseX-p.x, dy=mouseY-p.y;
+    var dist=Math.sqrt(dx*dx+dy*dy)||1;
+    p.vx+=dx/dist*0.05; p.vy+=dy/dist*0.05;
+    p.vx*=0.95; p.vy*=0.95;
+    p.x+=p.vx; p.y+=p.vy;
+    p.life-=p.decay;
+    if(p.life<=0){particles.splice(i,1);continue;}
+    ctx.save();
+    ctx.globalAlpha=p.life*0.5;
+    ctx.shadowBlur=10; ctx.shadowColor='#C9A84C';
+    ctx.fillStyle='#D4AF37';
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
+    ctx.restore();
+  }
+
+  // Ember particles
+  for(var j=emberParticles.length-1;j>=0;j--){
+    var e=emberParticles[j];
+    e.x+=e.vx+Math.sin(Date.now()/800+j)*0.3;
+    e.y+=e.vy;
+    e.life-=e.decay;
+    if(e.life<=0||e.y<window.innerHeight-800){emberParticles.splice(j,1);continue;}
+    ctx.save();
+    ctx.globalAlpha=e.life*0.5;
+    var col='hsl('+(e.hue||15)+',90%,55%)';
+    ctx.shadowBlur=8; ctx.shadowColor=col;
+    ctx.fillStyle=col;
+    ctx.beginPath();ctx.arc(e.x,e.y,e.r,0,Math.PI*2);ctx.fill();
+    ctx.restore();
+  }
+
+  // Burst particles
+  for(var k=burstParticles.length-1;k>=0;k--){
+    var b=burstParticles[k];
+    b.vy+=0.08;
+    b.x+=b.vx; b.y+=b.vy;
+    b.life-=b.decay;
+    if(b.life<=0){burstParticles.splice(k,1);continue;}
+    ctx.save();
+    ctx.globalAlpha=b.life*0.7;
+    ctx.shadowBlur=12; ctx.shadowColor='#C9A84C';
+    ctx.fillStyle='#D4AF37';
+    ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();
+    ctx.restore();
+  }
+
+  requestAnimationFrame(loop);
+})();
+
+/* ── Animated SVG Map Line ── */
+window.addEventListener('load',function(){
+  var path = document.getElementById('map-path');
+  if(!path) return;
+  var len = path.getTotalLength();
+  path.style.strokeDasharray = len;
+  path.style.strokeDashoffset = len;
+  path.style.transition = 'stroke-dashoffset 3s ease-in-out';
+  setTimeout(function(){path.style.strokeDashoffset='0';},200);
+
+  var pins=[['pin1',0.25],['pin2',0.44],['pin3',0.65],['pin4',0.87]];
+  pins.forEach(function(p){
+    setTimeout(function(){
+      var el=document.getElementById(p[0]);
+      if(el) el.style.opacity='0.8';
+    }, 200 + p[1]*3000);
+  });
+});
+
+/* ── Text Scramble ── */
+var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ⊕◈✦◉≋∿';
+function scramble(el){
+  if(el.dataset.scrambled) return;
+  el.dataset.scrambled='1';
+  var original = el.textContent;
+  var len = original.length;
+  var resolved = 0;
+  var total = 800;
+  var start = Date.now();
+  var iv = setInterval(function(){
+    var now = Date.now();
+    var progress = Math.min(1,(now-start)/total);
+    resolved = Math.floor(progress*len);
+    var out='';
+    for(var i=0;i<len;i++){
+      if(i<resolved) out+=original[i];
+      else out+=original[i]===' '?' ':CHARS[Math.floor(Math.random()*CHARS.length)];
+    }
+    el.textContent=out;
+    if(resolved>=len){clearInterval(iv);el.textContent=original;}
+  },40);
+}
+var scrambleEls = document.querySelectorAll('.scramble-heading');
+var scrambleObs = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting) scramble(entry.target);
+  });
+},{threshold:0.3});
+scrambleEls.forEach(function(el){scrambleObs.observe(el);});
+
+/* ── Buy link flash ── */
+var flash = document.getElementById('flash');
+document.querySelectorAll('[data-buy="true"]').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.preventDefault();
+    var url = btn.dataset.url||'#';
+    flash.style.transition='opacity 0.15s';
+    flash.style.opacity='1';
+    setTimeout(function(){
+      flash.style.transition='opacity 0.3s';
+      flash.style.opacity='0';
+      setTimeout(function(){if(url&&url!='#') window.open(url,'_blank');},200);
+    },150);
+  });
+});
+
+/* ── Easter Egg 1: MAPS word ── */
+var typed='';
+document.addEventListener('keydown',function(e){
+  typed=(typed+e.key).slice(-4).toUpperCase();
+  if(typed==='MAPS'){
+    document.getElementById('maps-overlay').classList.add('show');
+    typed='';
+  }
+});
+document.getElementById('maps-close').addEventListener('click',function(){
+  document.getElementById('maps-overlay').classList.remove('show');
+});
+document.getElementById('maps-backdrop').addEventListener('click',function(){
+  document.getElementById('maps-overlay').classList.remove('show');
+});
+
+/* ── Easter Egg 2: Sigil triple click ── */
+var sigilClicks=0, sigilTimer=null;
+var sigilTip=document.getElementById('sigil-tip');
+document.getElementById('sigil-btn').addEventListener('click',function(){
+  sigilClicks++;
+  clearTimeout(sigilTimer);
+  sigilTimer=setTimeout(function(){sigilClicks=0;},3000);
+  if(sigilClicks>=3){
+    sigilClicks=0;
+    sigilTip.classList.add('show');
+    setTimeout(function(){sigilTip.classList.remove('show');},5000);
+  }
+});
+
+/* ── Easter Egg 5: Scroll to bottom reward ── */
+var rewardFired=false;
+var reward=document.getElementById('scroll-reward');
+var rewardObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting&&!rewardFired){
+      rewardFired=true;
+      triggerBurst();
+      reward.classList.add('show');
+      setTimeout(function(){reward.classList.remove('show');},3500);
+    }
+  });
+},{threshold:1.0});
+var footerEnd=document.getElementById('footer-end');
+if(footerEnd) rewardObs.observe(footerEnd);
+
+})();
+</script>
+</body>
+</html>
